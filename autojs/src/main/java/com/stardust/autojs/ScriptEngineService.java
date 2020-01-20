@@ -191,8 +191,6 @@ public class ScriptEngineService {
         int n = stopAll();
         if (n > 0) {
             mUiHandler.toast(String.format(mContext.getString(R.string.text_already_stop_n_scripts), n));
-        } else {
-            mUiHandler.toast("没有运行中的脚本");
         }
     }
 
