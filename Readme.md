@@ -1,12 +1,6 @@
 # Auto.js
 ## 简介
-一个支持无障碍服务的Android平台上的JavaScript IDE，其发展目标是JsBox和Workflow。
-
-同时有[VS Code 插件](https://github.com/hyb1996/Auto.js-VSCode-Extension)可提供基础的在桌面开发的功能。
-
-下载地址：[酷安](http://www.coolapk.com/apk/org.autojs.autojs)
-
-Alpha版本：[Releases](https://github.com/hyb1996/NoRootScriptDroid/releases)
+一个支持无障碍服务的Android平台上的JavaScript IDE
 
 官方文档：https://hyb1996.github.io/AutoJs-Docs/
 
@@ -33,16 +27,3 @@ Alpha版本：[Releases](https://github.com/hyb1996/NoRootScriptDroid/releases)
 * 文档：可在[这里](https://hyb1996.github.io/AutoJs-Docs/)查看在线文档。目前文档仍然不完善。
 * 示例：可在[这里](https://github.com/hyb1996/NoRootScriptDroid/tree/master/app/src/main/assets/sample)查看一些示例，或者直接在应用内查看和运行。
 
-### 截图
-
-![screen-capture2](https://raw.githubusercontent.com/hyb1996/NoRootScriptDroid/master/screen-captures/ss02.png)
-
-![screen-capture5](https://raw.githubusercontent.com/hyb1996/NoRootScriptDroid/master/screen-captures/ss05.png)
-
-![screen-capture5](https://raw.githubusercontent.com/hyb1996/NoRootScriptDroid/master/screen-captures/ss07.png)
-
-![screen-capture5](https://raw.githubusercontent.com/hyb1996/NoRootScriptDroid/master/screen-captures/ss08.png)
-
-## License
-基于[Mozilla Public License Version 2.0](https://github.com/hyb1996/NoRootScriptDroid/blob/master/LICENSE.md)并附加以下条款：
-* **非商业性使用** — 不得将此项目及其衍生的项目的源代码和二进制产品用于任何商业和盈利用途
