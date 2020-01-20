@@ -70,7 +70,7 @@ class ScripListActivity : AppCompatActivity(), View.OnClickListener {
                 // 抢红包
                 R.id.bt_red -> {
                     if (canDrawOverlays()) {
-                        mUiHandler.toast("请手动打开到群聊天")
+                        mUiHandler.toast("请手动打开群聊天")
                         GlobalRedLauncher.launch(this)
                     }
                 }
