@@ -18,7 +18,7 @@
         android:name=".App"
         android:allowBackup="false"
         android:icon="@mipmap/mayun"
-        android:label="为快不破"
+        android:label="唯快不破"
         android:supportsRtl="true"
         android:theme="@style/ScriptTheme"
         android:usesCleartextTraffic="true"
