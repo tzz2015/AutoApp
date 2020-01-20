@@ -1,14 +1,13 @@
 package com.stardust.auojs.inrt
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.stardust.auojs.inrt.autojs.AccessibilityServiceTool
 import com.stardust.auojs.inrt.autojs.AutoJs
 import com.stardust.auojs.inrt.launch.GlobalDouYinLauncher
@@ -16,14 +15,11 @@ import com.stardust.auojs.inrt.launch.GlobalKuaiShouLauncher
 import com.stardust.auojs.inrt.launch.GlobalRedLauncher
 import com.stardust.util.UiHandler
 import kotlinx.android.synthetic.main.activity_scrip_list.*
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import android.util.Log
-import androidx.fragment.app.FragmentActivity
 
 
 class ScripListActivity : AppCompatActivity(), View.OnClickListener {
     private val mUiHandler: UiHandler = UiHandler(this)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -107,6 +103,7 @@ class ScripListActivity : AppCompatActivity(), View.OnClickListener {
         }
         return true
     }
+
 
 
 }
