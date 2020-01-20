@@ -17,8 +17,8 @@
     <application
         android:name=".App"
         android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher"
-        android:label="开挂阿三"
+        android:icon="@mipmap/mayun"
+        android:label="为快不破"
         android:supportsRtl="true"
         android:theme="@style/ScriptTheme"
         android:usesCleartextTraffic="true"

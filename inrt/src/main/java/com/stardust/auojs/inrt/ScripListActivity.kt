@@ -46,11 +46,9 @@ class ScripListActivity : AppCompatActivity(), View.OnClickListener {
                     .setPositiveButton("确定") { dialog, which ->
                         AccessibilityServiceTool.goToAccessibilitySetting()
                     }
-            // 创建对话框并返回.
+            // 创建对话框
             val dialog = builder.create()
             dialog.show()
-
-
 
         }
     }
@@ -99,7 +97,7 @@ class ScripListActivity : AppCompatActivity(), View.OnClickListener {
     /**
      * 是否有悬浮窗权限
      */
-    fun canDrawOverlays(): Boolean {
+    private fun canDrawOverlays(): Boolean {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!Settings.canDrawOverlays(this)) {
                 mUiHandler.toast("当前无权限，请授权")
