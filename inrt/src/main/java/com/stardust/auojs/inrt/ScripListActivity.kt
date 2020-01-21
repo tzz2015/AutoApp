@@ -1,25 +1,25 @@
 package com.stardust.auojs.inrt
 
 import android.app.AlertDialog
-import android.content.DialogInterface
+import android.content.ActivityNotFoundException
+import android.content.ComponentName
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.stardust.auojs.inrt.autojs.AccessibilityServiceTool
 import com.stardust.auojs.inrt.autojs.AutoJs
 import com.stardust.auojs.inrt.launch.GlobalDouYinLauncher
 import com.stardust.auojs.inrt.launch.GlobalKuaiShouLauncher
+import com.stardust.auojs.inrt.launch.GlobalNotificationLuncher
 import com.stardust.auojs.inrt.launch.GlobalRedLauncher
 import com.stardust.util.UiHandler
 import kotlinx.android.synthetic.main.activity_scrip_list.*
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import android.util.Log
-import androidx.fragment.app.FragmentActivity
 
 
 class ScripListActivity : AppCompatActivity(), View.OnClickListener {
@@ -28,6 +28,18 @@ class ScripListActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scrip_list)
+        initView()
+    }
+
+    private fun initView() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            if (notificationListenerEnable()) {
+                bt_notification.visibility = View.GONE
+            } else {
+                bt_notification.visibility = View.VISIBLE
+            }
+        }
+
     }
 
     /**
@@ -71,7 +83,10 @@ class ScripListActivity : AppCompatActivity(), View.OnClickListener {
                 R.id.bt_red -> {
                     if (canDrawOverlays()) {
                         mUiHandler.toast("请手动打开群聊天")
+                        GlobalNotificationLuncher.launch(this)
                         GlobalRedLauncher.launch(this)
+                    } else {
+                        Log.e("", "")
                     }
                 }
                 // 快手
@@ -90,6 +105,13 @@ class ScripListActivity : AppCompatActivity(), View.OnClickListener {
                 R.id.bt_stop_scrip -> {
                     AutoJs.instance.run { scriptEngineService.stopAllAndToast() }
                 }
+                // 开启通知栏
+                R.id.bt_notification -> {
+                    gotoNotificationAccessSetting(this)
+                }
+                else -> {
+                    Log.e("", "")
+                }
             }
         }
     }
@@ -106,6 +128,43 @@ class ScripListActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
         return true
+    }
+
+
+    private fun notificationListenerEnable(): Boolean {
+        var enable = false
+        val packageName = packageName
+        val flat = Settings.Secure.getString(contentResolver, "enabled_notification_listeners")
+        if (flat != null) {
+            enable = flat.contains(packageName)
+        }
+        return enable
+    }
+
+
+    /**
+     * 开启通知栏
+     */
+    private fun gotoNotificationAccessSetting(context: Context): Boolean {
+        try {
+            val intent = Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS")
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            context.startActivity(intent)
+            return true
+        } catch (e: ActivityNotFoundException) {
+            try {
+                val intent = Intent()
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                val cn = ComponentName("com.android.settings", "com.android.settings.Settings.NotificationAccessSettingsActivity")
+                intent.setComponent(cn)
+                intent.putExtra(":settings:show_fragment", "NotificationAccessSettings")
+                context.startActivity(intent)
+                return true
+            } catch (ex: Exception) {
+                ex.printStackTrace()
+            }
+            return false
+        }
     }
 
 

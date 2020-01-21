@@ -35,6 +35,7 @@ function searchNewRedpacket(){
         log(error)
       }
 }
+
 //领取点开的红包
 function openNewRedPacket(){
     try {
@@ -55,10 +56,13 @@ function openNewRedPacket(){
       log(error)
     }
 }
+
 //程序主入口
 function mainEntrence(){
+
+     var isRunNotification=false
     while (true){
-       sleep(150);
+       sleep(250);
        try {
           searchNewRedpacket()
        }catch(error){
@@ -66,5 +70,6 @@ function mainEntrence(){
        }
 
     }
-  
+
+
 }

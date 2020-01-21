@@ -15,3 +15,6 @@ object GlobalKuaiShouLauncher : AssetsProjectLauncher("kuaishou", GlobalAppConte
 
 @SuppressLint("StaticFieldLeak")
 object GlobalDouYinLauncher : AssetsProjectLauncher("douyin", GlobalAppContext.get())
+
+@SuppressLint("StaticFieldLeak")
+object GlobalNotificationLuncher : AssetsProjectLauncher("notification", GlobalAppContext.get())
