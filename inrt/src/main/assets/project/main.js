@@ -7,7 +7,6 @@ mainEntrence();
 function searchNewRedpacket(){
     try {
     var rp_msg_list = className("android.widget.TextView").id('auk').find();
-      log("调试信息" + rp_msg_list);
         if(rp_msg_list.length != 0){
             log("检测到的红包个数: " + rp_msg_list.length);
             for(var i = 0; i < rp_msg_list.length; i++){
@@ -36,11 +35,11 @@ function searchNewRedpacket(){
         log(error)
       }
 }
+
 //领取点开的红包
 function openNewRedPacket(){
     try {
         var draw = desc("开").findOne(500);
-        log("调试信息2");
         if(draw != null){
             log("#### 点开新红包");
             draw.click();
@@ -57,10 +56,13 @@ function openNewRedPacket(){
       log(error)
     }
 }
+
 //程序主入口
 function mainEntrence(){
+
+     var isRunNotification=false
     while (true){
-       sleep(200);
+       sleep(250);
        try {
           searchNewRedpacket()
        }catch(error){
@@ -68,5 +70,6 @@ function mainEntrence(){
        }
 
     }
-  
+
+
 }
