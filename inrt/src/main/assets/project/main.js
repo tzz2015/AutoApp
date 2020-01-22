@@ -62,7 +62,7 @@ function mainEntrence(){
 
      var isRunNotification=false
     while (true){
-       sleep(250);
+       sleep(100);
        try {
           searchNewRedpacket()
        }catch(error){
