@@ -156,7 +156,7 @@ class ScripListActivity : AppCompatActivity(), View.OnClickListener {
                 val intent = Intent()
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 val cn = ComponentName("com.android.settings", "com.android.settings.Settings.NotificationAccessSettingsActivity")
-                intent.setComponent(cn)
+                intent.component = cn
                 intent.putExtra(":settings:show_fragment", "NotificationAccessSettings")
                 context.startActivity(intent)
                 return true
