@@ -34,9 +34,9 @@ class ScripListActivity : AppCompatActivity(), View.OnClickListener {
     private fun initView() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             if (notificationListenerEnable()) {
-                bt_notification.visibility = View.GONE
+                bt_notification.text = "已开启通知栏权限"
             } else {
-                bt_notification.visibility = View.VISIBLE
+                bt_notification.text = "去开启通知栏权限"
             }
         }
 

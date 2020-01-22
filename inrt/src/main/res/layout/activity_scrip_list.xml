@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
-        android:text="请先开启“无障碍”服务，才能正常运行。一次启动一个脚本，莫贪多！按音量上键停止所有脚本运行"
+        android:text="请先开启“无障碍”服务，才能正常运行。一次启动一个脚本，莫贪多！按音量上键停止所有脚本运行。开启通知栏权限,不打开微信的情况下，可以抢红包。"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
