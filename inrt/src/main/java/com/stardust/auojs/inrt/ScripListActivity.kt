@@ -14,10 +14,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.stardust.auojs.inrt.autojs.AccessibilityServiceTool
 import com.stardust.auojs.inrt.autojs.AutoJs
-import com.stardust.auojs.inrt.launch.GlobalDouYinLauncher
-import com.stardust.auojs.inrt.launch.GlobalKuaiShouLauncher
-import com.stardust.auojs.inrt.launch.GlobalNotificationLuncher
-import com.stardust.auojs.inrt.launch.GlobalRedLauncher
+import com.stardust.auojs.inrt.launch.*
 import com.stardust.util.UiHandler
 import kotlinx.android.synthetic.main.activity_scrip_list.*
 
@@ -108,6 +105,10 @@ class ScripListActivity : AppCompatActivity(), View.OnClickListener {
                 // 开启通知栏
                 R.id.bt_notification -> {
                     gotoNotificationAccessSetting(this)
+                }
+                // 有品口罩
+                R.id.bt_mask ->{
+                    GlobalMaskLuncher.launch(this)
                 }
                 else -> {
                     Log.e("", "")

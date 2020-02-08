@@ -18,3 +18,6 @@ object GlobalDouYinLauncher : AssetsProjectLauncher("douyin", GlobalAppContext.g
 
 @SuppressLint("StaticFieldLeak")
 object GlobalNotificationLuncher : AssetsProjectLauncher("notification", GlobalAppContext.get())
+
+@SuppressLint("StaticFieldLeak")
+object GlobalMaskLuncher : AssetsProjectLauncher("youpin", GlobalAppContext.get())
