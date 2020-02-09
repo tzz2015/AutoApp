@@ -13,7 +13,7 @@ while (true){
           hour=d.getHours()
           minute=d.getMinutes()
           log("-----"+hour+"点"+minute+"分"+"-----")
-          if(minute==33){
+          if(hour==16){
 //            clickMaskDetail()
               width = device.width
               height = device.height
