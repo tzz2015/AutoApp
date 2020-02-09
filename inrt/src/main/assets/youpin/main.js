@@ -8,15 +8,24 @@ sleep(3000);
 
 // 循环执行
 while (true){
-         sleep(1000);
+         sleep(500);
          var d = new Date();
           hour=d.getHours()
           minute=d.getMinutes()
-          log("时："+hour+"----分："+minute)
-          if(minute==15){
-            clickMaskDetail()
-            clickRushBuy()
-            break
+          log("-----"+hour+"点"+minute+"分"+"-----")
+          if(minute==33){
+//            clickMaskDetail()
+              width = device.width
+              height = device.height
+              log("宽："+width+"----高："+height)
+              click(width/2,height/2)
+              sleep(10)
+              click(width/2,height/2)
+              sleep(10)
+              click(width/2,height/2)
+              sleep(10)
+              clickRushBuy()
+              break
           }
        }
 
