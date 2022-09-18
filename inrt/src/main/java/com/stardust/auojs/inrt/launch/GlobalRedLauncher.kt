@@ -21,3 +21,6 @@ object GlobalNotificationLuncher : AssetsProjectLauncher("notification", GlobalA
 
 @SuppressLint("StaticFieldLeak")
 object GlobalMaskLuncher : AssetsProjectLauncher("youpin", GlobalAppContext.get())
+
+@SuppressLint("StaticFieldLeak")
+object GlobalJingdongLuncher : AssetsProjectLauncher("jingdong", GlobalAppContext.get())
