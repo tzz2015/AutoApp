@@ -172,5 +172,10 @@ class ScripListActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        AutoJs.instance.run { scriptEngineService.stopAllAndToast() }
+    }
+
 
 }
