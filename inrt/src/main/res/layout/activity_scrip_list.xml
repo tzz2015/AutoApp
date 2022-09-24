@@ -94,9 +94,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="抢茅台"
+        android:text="抢京东茅台"
         android:onClick="onClick"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bt_mask" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt_taobao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="抢淘宝茅台"
+        android:onClick="onClick"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_jingdong" />
 </androidx.constraintlayout.widget.ConstraintLayout>

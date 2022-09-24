@@ -1,77 +1,33 @@
 console.show();
+console.setPosition(100, device.height/2);
 auto.waitFor();
-app.launchApp('小米有品');
+app.launchApp("支付宝");
 sleep(3000);
-//clickMaskDetail()
-//clickRushBuy()
-
-
-// 循环执行
-while (true){
-         sleep(500);
-         var d = new Date();
-          hour=d.getHours()
-          minute=d.getMinutes()
-          log("-----"+hour+"点"+minute+"分"+"-----")
-          if(hour==16){
-//            clickMaskDetail()
-              width = device.width
-              height = device.height
-              log("宽："+width+"----高："+height)
-              click(width/2,height/2)
-              sleep(10)
-              click(width/2,height/2)
-              sleep(10)
-              click(width/2,height/2)
-              sleep(10)
-              clickRushBuy()
-              break
-          }
-       }
-
-
-//点击口罩详情
-function clickMaskDetail() {
-     while (true){
-        sleep(100);
-        try {
-           log("开始点击")
-           var maskImage = className("android.widget.Image").text("a7b5a6fcad58549d209684e3da6c85c5").findOne();
-           if(maskImage){
-              maskImage.click()
-              log("成功点击")
-              break
-           }else{
-              log("没有找到入口")
-           }
-          }catch(error){
-            log("点击失败")
-            log(error)
-         }
-       }
-     sleep(100);
-}
-// 点击抢购
-function clickRushBuy(){
-       width = device.width
-       height = device.height
-       log("宽："+width+"----高："+height)
-       while (true){
-             try {
-                  sleep(100);
-                  log("点击立即抢购")
-                  click(width-50,height-30)
-                  log("点击完成立即抢购")
-                  sleep(100)
-                  click(width-50,height-30)
-                  log("点击确定")
-                  click(width/2,height-30)
-               }catch(error){
-                 log("出错了，不好意思")
-                 log(error)
-              }
-       }
-
+var screen_width = device.width;  //设置屏幕的宽度，像素值
+var screen_height =  device.height; //设置屏幕的高度，像素值
+//前置操作
+setScreenMetrics(screen_width, screen_height);
+//收取自己的能量
+for (var row = screen_height * 0.256; row < screen_height * 0.376; row += 80)
+    for (var col = screen_width * 0.185; col < screen_width * 0.815; col += 80) {
+        click(col, row);
+        sleep(50);
     }
-
-
+//循环收取好友能量
+while (text("找能量").findOne()) {
+    sleep(100)
+    log("开始收能量");
+    text("找能量").findOne().click();
+    sleep(1000);
+    for (var row = screen_height * 0.256; row < screen_height * 0.376; row += 80) {
+        for (var col = screen_width * 0.185; col < screen_width * 0.815; col += 80) {
+            click(col, row);
+            sleep(50);
+        }
+    }
+    back();
+    sleep(500)
+    log("一个好友能量收取结束，开始下一个");
+}
+log("循环结束准备退出");
+exit();

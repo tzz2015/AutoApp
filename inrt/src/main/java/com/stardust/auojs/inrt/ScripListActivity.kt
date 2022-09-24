@@ -110,9 +110,13 @@ class ScripListActivity : AppCompatActivity(), View.OnClickListener {
                 R.id.bt_mask ->{
                     GlobalMaskLuncher.launch(this)
                 }
-                // 茅台
+                // 京东茅台
                 R.id.bt_jingdong ->{
                     GlobalJingdongLuncher.launch(this)
+                }
+                // 茅台
+                R.id.bt_taobao ->{
+                    GlobalTaobaoLuncher.launch(this)
                 }
                 else -> {
                     Log.e("", "")

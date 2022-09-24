@@ -19,6 +19,10 @@ while (true){
                if(btnSnapUp != null){
                   log("找到立即抢购")
                   btnSnapUp.click()
+                  sleep(10)
+                  btnSnapUp.click()
+                  sleep(12)
+                  btnSnapUp.click()
                }
 
                var btnConfirm = className("android.widget.Button").text("打白条").findOne()
