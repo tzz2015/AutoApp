@@ -91,8 +91,8 @@ class ScripListActivity : AppCompatActivity(), View.OnClickListener {
                     GlobalKuaiShouLauncher.launch(this)
                 }
                 // 抖音
-                R.id.bt_douyin -> {
-                    GlobalDouYinLauncher.launch(this)
+                R.id.bt_car -> {
+                    GlobalCarLauncher.launch(this)
                 }
                 // 启动无障碍
                 R.id.bt_accessibility -> {

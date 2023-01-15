@@ -6,10 +6,11 @@ mainEntrence();
 //搜索新红包并点开领取
 function searchNewRedpacket(){
     try {
-    var rp_msg_list = className("android.widget.TextView").id('auk').find();
+    var rp_msg_list = className("android.widget.TextView").id("y0").find();
+//    var rp_msg_list = className("android.widget.TextView").text("恭喜发财，大吉大利").find();
         if(rp_msg_list.length != 0){
             log("检测到的红包个数: " + rp_msg_list.length);
-            for(var i = 0; i < rp_msg_list.length; i++){
+            for(var i = rp_msg_list.length-1; i >= 0; i--){
                 var rp_auk = rp_msg_list[i];
                 var rp_auk_parent = rp_auk.parent();
                 if(rp_auk_parent.childCount() == 1){
@@ -19,9 +20,6 @@ function searchNewRedpacket(){
                     log("成功打开红包消息");
                     openNewRedPacket();
                     sleep(1000);
-                }else if(i == (rp_msg_list.length - 1)){
-                    log("当前页面已检测完");
-                    break;
                 }else{
                     log("无效红包, 跳过");
                 }
@@ -36,13 +34,34 @@ function searchNewRedpacket(){
       }
 }
 
+function searchNewRedpacket2(){
+     var btnSnapUp = className("android.widget.TextView").id("ape").findOne()
+//     var btnSnapUp = className("android.widget.TextView").text("恭喜发财，大吉大利").findOne()
+     if(btnSnapUp != null){
+       log("### 发现新红包");
+       var rpB = btnSnapUp.bounds();
+       click(rpB.left, rpB.top, rpB.right, rpB.bottom);
+       log("成功打开红包消息");
+        var kai = className("android.widget.ImageButton").id('gir').findOne(1000);
+        if(kai != null){
+         var kaiBound = kai.bounds();
+         click(kaiBound.left, kaiBound.top, kaiBound.right, kaiBound.bottom);
+          log("点击打开")
+        }else{
+          back();
+        }
+        sleep(500);
+     }
+}
+
 //领取点开的红包
 function openNewRedPacket(){
     try {
-        var draw = desc("开").findOne(500);
+        var draw = className("android.widget.ImageButton").id('gir').findOne(1000);
         if(draw != null){
             log("#### 点开新红包");
-            draw.click();
+            var draw = draw.bounds();
+            click(draw.left, draw.top, draw.right, draw.bottom);
             log("#### Gain a LUCKY succesfully!!!");
             sleep(500);
             //领完返回聊天主页
@@ -62,9 +81,10 @@ function mainEntrence(){
 
      var isRunNotification=false
     while (true){
-       sleep(100);
+       sleep(1000);
        try {
           searchNewRedpacket()
+//           searchNewRedpacket2()
        }catch(error){
          log(error)
        }

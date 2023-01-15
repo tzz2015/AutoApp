@@ -14,7 +14,7 @@ object GlobalRedLauncher : AssetsProjectLauncher("project", GlobalAppContext.get
 object GlobalKuaiShouLauncher : AssetsProjectLauncher("kuaishou", GlobalAppContext.get())
 
 @SuppressLint("StaticFieldLeak")
-object GlobalDouYinLauncher : AssetsProjectLauncher("douyin", GlobalAppContext.get())
+object GlobalCarLauncher : AssetsProjectLauncher("qiche", GlobalAppContext.get())
 
 @SuppressLint("StaticFieldLeak")
 object GlobalNotificationLuncher : AssetsProjectLauncher("notification", GlobalAppContext.get())
